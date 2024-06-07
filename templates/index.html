@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit API Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Reddit API Analyzer</h1>
+    <form action="/results" method="post">
+        <label for="subreddit">Subreddit:</label>
+        <input type="text" id="subreddit" name="subreddit" required>
+        
+        <label for="task">Select Task:</label>
+        <select id="task" name="task">
+            <option value="0">Number of Subscribers</option>
+            <option value="1">Top Ten Posts</option>
+            <option value="2">All Hot Posts</option>
+            <option value="3">Keyword Count</option>
+        </select>
+        
+        <div id="keywords_input" style="display:none;">
+            <label for="keywords">Keywords (comma separated):</label>
+            <input type="text" id="keywords" name="keywords">
+        </div>
+        
+        <button type="submit">Analyze</button>
+    </form>
+    <script>
+        document.getElementById('task').addEventListener('change', function() {
+            if (this.value == '3') {
+                document.getElementById('keywords_input').style.display = 'block';
+            } else {
+                document.getElementById('keywords_input').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

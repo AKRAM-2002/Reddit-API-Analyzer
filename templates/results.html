@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit API Analyzer Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Results for {{ task }}</h1>
+    <div>
+        {% if task == "Number of Subscribers" %}
+            <p>Subscribers: {{ result }}</p>
+        {% elif task == "Top Ten Posts" %}
+            <ul>
+                {% for post in result %}
+                    <li>{{ post }}</li>
+                {% endfor %}
+            </ul>
+        {% elif task == "All Hot Posts" %}
+            <ul>
+                {% for post in result %}
+                    <li>{{ post }}</li>
+                {% endfor %}
+            </ul>
+        {% elif task == "Keyword Count" %}
+            <ul>
+                {% for word, count in result %}
+                    <li>{{ word }}: {{ count }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <a href="/">Back</a>
+</body>
+</html>
