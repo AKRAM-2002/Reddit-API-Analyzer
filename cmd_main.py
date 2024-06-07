@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 import sys
-from subs import number_of_subscribers
-from top_ten import top_ten
-from recurse import recurse
-from count import count_words
+from api.subs import number_of_subscribers
+from api.top_ten import top_ten
+from api.recurse import recurse
+from api.count import count_words
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:

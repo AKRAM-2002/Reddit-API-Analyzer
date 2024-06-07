@@ -5,7 +5,7 @@ from api.top_ten import top_ten
 from api.recurse import recurse
 from api.count import count_words
 
-app = Flask(__name__, template_folder='../templates/', static_folder='../static')
+app = Flask(__name__)
 
 @app.route('/')
 def index():
